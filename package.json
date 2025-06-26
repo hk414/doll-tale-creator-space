@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://yourusername.github.io/your-repo-name",
+  "homepage": "https://hk414.github.io/doll-tale-creator-space",
   "scripts": {
     "dev": "vite",
     "dev:server": "cd server && npm run dev",
