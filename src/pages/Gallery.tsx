@@ -15,7 +15,7 @@ const DollPreview = ({ modelUrl, dollName }: { modelUrl: string; dollName: strin
   console.log(`Gallery - Loading 3D model for ${dollName} from URL:`, modelUrl);
   
   try {
-    const gltf = useGLTF(modelUrl);
+    const gltf = useGLTF(modelUrl, true); // Enable DRACO loader
     const scene = gltf.scene;
     
     if (!scene) {
@@ -45,6 +45,7 @@ const DollPreview = ({ modelUrl, dollName }: { modelUrl: string; dollName: strin
     return <primitive object={clonedScene} />;
   } catch (error) {
     console.error(`Gallery - Error loading GLB model for ${dollName}:`, error);
+    console.error(`Gallery - Model URL that failed:`, modelUrl);
     // Simple fallback placeholder without any SVG elements
     return <SimpleDollPlaceholder />;
   }
@@ -101,8 +102,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 }
 
 const PreviewFallback = () => (
-  <div className="w-full h-full flex items-center justify-center">
-    <Loader2 className="h-8 w-8 animate-spin text-doll-pink" />
+  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-doll-pink/10 to-doll-purple/10">
+    <div className="text-center">
+      <Loader2 className="h-6 w-6 animate-spin text-doll-pink mx-auto mb-2" />
+      <p className="text-xs text-gray-500">Loading 3D model...</p>
+    </div>
   </div>
 );
 
@@ -187,6 +191,27 @@ export default function Gallery() {
 
   useEffect(() => {
     loadDolls();
+    
+    // Preload 3D models to improve loading performance
+    const preloadModels = async () => {
+      try {
+        const dollsData = await apiClient.getDolls();
+        console.log('Gallery - Preloading 3D models...');
+        
+        // Preload the first few models
+        dollsData.slice(0, 3).forEach((doll) => {
+          if (doll.modelUrl && doll.modelUrl.endsWith('.glb')) {
+            console.log(`Gallery - Preloading model for ${doll.name}: ${doll.modelUrl}`);
+            useGLTF.preload(doll.modelUrl);
+          }
+        });
+      } catch (error) {
+        console.warn('Gallery - Could not preload models:', error);
+      }
+    };
+    
+    // Delay preloading slightly to let the main content load first
+    setTimeout(preloadModels, 1000);
   }, []);
 
   const filteredDolls = dolls.filter(doll => {
@@ -303,10 +328,11 @@ export default function Gallery() {
                   <div className="w-full h-full">
                     <ErrorBoundary
                       fallback={
-                        <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                          <div className="text-center">
-                            <div className="text-4xl mb-2">🎭</div>
-                            <p className="text-sm text-gray-600">{doll.name}</p>
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-doll-pink/20 to-doll-purple/20">
+                          <div className="text-center p-4">
+                            <div className="text-2xl mb-2">🎭</div>
+                            <p className="text-xs text-gray-600 mb-2">{doll.name}</p>
+                            <p className="text-xs text-gray-500">Loading 3D model...</p>
                           </div>
                         </div>
                       }
