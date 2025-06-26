@@ -1,6 +1,6 @@
 # DolLife - Microsoft Intern Hackathon 2025
 
-Transform your beloved doll into a magical 3D experience. Share their story, add sparkles, and create memories that last forever. This platform empowers brands to tell their unique stories and connect with collectors, while users can share their own experiences and build meaningful, two-way relationships with both brands and their dolls through AI-powered conversations.
+Transform your beloved doll into a magical 3D experience. Share their story, add sparkles, and create memories that last forever. This platform empowers brands to tell their unique stories and connect with collectors, while users can share their own experiences and build meaningful, two-way relationships with both brands and their dolls through AI-powered interactions using images, voices etc.
 
 **Watch the demo here:** [https://youtu.be/H_Tppx_51Kk](https://youtu.be/H_Tppx_51Kk)
 
