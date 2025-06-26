@@ -2,7 +2,10 @@
 
 Transform your beloved doll into a magical 3D experience. Share their story, add sparkles, and create memories that last forever. This platform empowers brands to tell their unique stories and connect with collectors, while users can share their own experiences and build meaningful, two-way relationships with both brands and their dolls through AI-powered interactions using images, voices etc.
 
-**Watch the demo here:** [https://youtu.be/H_Tppx_51Kk](https://youtu.be/H_Tppx_51Kk)
+**Watch the demo here:** [https://youtu.be/H_Tppx_51Kk](https://youtu.be/H_Tppx_51Kk)  
+**Access the website:** [https://hk414.github.io/doll-tale-creator-space](https://hk414.github.io/doll-tale-creator-space) (most features may not work fully due to backend/API limitations on GitHub Pages)
+
+> **Note:** On first load, the gallery's 3D models may not render properly due to browser caching or GitHub Pages limitations. If you don't see the models, try refreshing the page.
 
 ## Overview
 
