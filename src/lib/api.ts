@@ -1,4 +1,9 @@
+import { mockApiClient } from './mockApi';
+
 const API_BASE_URL = 'http://localhost:3001/api';
+
+// Check if we're in production (GitHub Pages) or development
+const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
 
 export interface Doll {
   id: string;
@@ -26,6 +31,11 @@ export interface DollFormData {
 
 class ApiClient {
   async uploadDoll(formData: DollFormData): Promise<Doll> {
+    // Use mock API in production
+    if (isProduction) {
+      return mockApiClient.uploadDoll(formData);
+    }
+
     const data = new FormData();
     data.append('name', formData.name);
     data.append('story', formData.story);
@@ -48,6 +58,12 @@ class ApiClient {
   }
 
   async getDolls(): Promise<Doll[]> {
+    // Use mock API in production
+    if (isProduction) {
+      console.log('Using mock API for production');
+      return mockApiClient.getDolls();
+    }
+
     try {
       console.log('API - Fetching dolls from:', `${API_BASE_URL}/dolls`);
       const response = await fetch(`${API_BASE_URL}/dolls`);
@@ -78,6 +94,11 @@ class ApiClient {
   }
 
   async getDoll(id: string): Promise<Doll> {
+    // Use mock API in production
+    if (isProduction) {
+      return mockApiClient.getDoll(id);
+    }
+
     const response = await fetch(`${API_BASE_URL}/dolls/${id}`);
     
     if (!response.ok) {
@@ -89,6 +110,11 @@ class ApiClient {
   }
 
   async addSticker(dollId: string, type: string, position: [number, number, number]): Promise<{ id: string; type: string; position: [number, number, number] }> {
+    // Use mock API in production
+    if (isProduction) {
+      return mockApiClient.addSticker(dollId, type, position);
+    }
+
     const response = await fetch(`${API_BASE_URL}/dolls/${dollId}/stickers`, {
       method: 'POST',
       headers: {
@@ -106,6 +132,11 @@ class ApiClient {
   }
 
   async removeSticker(dollId: string, stickerId: string): Promise<void> {
+    // Use mock API in production
+    if (isProduction) {
+      return mockApiClient.removeSticker(dollId, stickerId);
+    }
+
     const response = await fetch(`${API_BASE_URL}/dolls/${dollId}/stickers/${stickerId}`, {
       method: 'DELETE',
     });
@@ -117,6 +148,12 @@ class ApiClient {
   }
 
   async saveVoiceProfile(dollId: string, audioBlob: Blob, personalityTraits: string[], apiKey?: string): Promise<void> {
+    // Use mock API in production
+    if (isProduction) {
+      console.log('Using mock API for voice profile in production');
+      return;
+    }
+
     console.log('API - saveVoiceProfile called with:', {
       dollId,
       audioBlobSize: audioBlob.size,
