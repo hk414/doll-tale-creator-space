@@ -13,53 +13,69 @@ export interface Doll {
   };
 }
 
-// Mock data for demo purposes
+// Mock data for demo purposes - using real 3D models
 const mockDolls: Doll[] = [
   {
     id: "1",
-    name: "Bella the Ballerina",
-    story: "Bella loves to dance and dreams of performing on stage. She practices every day and teaches other dolls how to pirouette!",
-    brand: "DreamDance Dolls",
-    purchaseLocation: "Magical Toy Store",
-    email: "bella@example.com",
-    modelUrl: "/placeholder.svg",
+    name: "Labubu the Farmer",
+    story: "Meet Labubu the Farmer! This adorable character loves tending to crops and exploring the countryside. Always ready for outdoor adventures and making friends with farm animals!",
+    brand: "Pop Mart",
+    purchaseLocation: "Pop Mart Store",
+    email: "labubu.farmer@example.com",
+    modelUrl: "/doll-tale-creator-space/models/a08c3384-4b30-4883-a584-e89074f51f7c-labubu_-_farmer.glb",
     stickers: [
       { id: "s1", type: "star", position: [0.5, 0.8, 0.1] },
       { id: "s2", type: "heart", position: [-0.3, 0.6, 0.1] }
     ],
     voiceProfile: {
-      personalityTraits: ["cheerful", "energetic", "encouraging"]
+      personalityTraits: ["cheerful", "hardworking", "nature-loving"]
     }
   },
   {
     id: "2", 
-    name: "Max the Explorer",
-    story: "Max is always ready for adventure! He carries a tiny backpack and loves discovering new places and making friends along the way.",
-    brand: "Adventure Kids",
-    purchaseLocation: "Toy Kingdom",
-    email: "max@example.com",
-    modelUrl: "/placeholder.svg",
+    name: "Labubu CNY Edition",
+    story: "Celebrating the Chinese New Year with Labubu! This special edition brings luck, prosperity, and festive joy. Perfect for spreading happiness during the lunar celebrations!",
+    brand: "Pop Mart",
+    purchaseLocation: "Pop Mart CNY Collection",
+    email: "labubu.cny@example.com",
+    modelUrl: "/doll-tale-creator-space/models/f1b38f66-e1a6-4f98-83a6-e012c972c54e-labubu_cny.glb",
     stickers: [
-      { id: "s3", type: "compass", position: [0.2, 0.9, 0.1] }
+      { id: "s3", type: "fireworks", position: [0.2, 0.9, 0.1] }
     ],
     voiceProfile: {
-      personalityTraits: ["curious", "brave", "friendly"]
+      personalityTraits: ["festive", "lucky", "joyful"]
     }
   },
   {
     id: "3",
-    name: "Luna the Artist",
-    story: "Luna sees magic in colors and shapes. She loves painting rainbows and drawing pictures of her doll friends!",
-    brand: "Creative Companions",
-    purchaseLocation: "Art & Craft Store",
-    email: "luna@example.com", 
-    modelUrl: "/placeholder.svg",
+    name: "Luigi Doll HD",
+    story: "It's-a me, Luigi! The brave brother in green is here for all your adventures. Whether jumping through pipes or exploring mysterious mansions, Luigi is your loyal companion!",
+    brand: "Nintendo",
+    purchaseLocation: "Nintendo Store",
+    email: "luigi@example.com", 
+    modelUrl: "/doll-tale-creator-space/models/59408d8a-5df1-48d4-a080-5052637ca15a-luigi_doll_hd.glb",
     stickers: [
-      { id: "s4", type: "palette", position: [0.4, 0.7, 0.1] },
-      { id: "s5", type: "rainbow", position: [-0.2, 0.5, 0.1] }
+      { id: "s4", type: "mushroom", position: [0.4, 0.7, 0.1] },
+      { id: "s5", type: "coin", position: [-0.2, 0.5, 0.1] }
     ],
     voiceProfile: {
-      personalityTraits: ["creative", "imaginative", "gentle"]
+      personalityTraits: ["brave", "loyal", "adventurous"]
+    }
+  },
+  {
+    id: "4",
+    name: "Build-A-Bear Friend",
+    story: "This special Build-A-Bear friend is filled with love and cuddles! Created with care and personalized just for you. Every hug brings warmth and happiness!",
+    brand: "Build-A-Bear Workshop",
+    purchaseLocation: "Build-A-Bear Workshop",
+    email: "bear@example.com",
+    modelUrl: "/doll-tale-creator-space/models/c760f85a-74c5-492e-9719-9cb0f2acfc88-build_a_bear.glb",
+    stickers: [
+      { id: "s6", type: "heart", position: [0.0, 0.6, 0.1] },
+      { id: "s7", type: "rainbow", position: [0.3, 0.4, 0.1] }
+    ],
+    voiceProfile: {
+      personalityTraits: ["cuddly", "loving", "gentle"]
     }
   }
 ];

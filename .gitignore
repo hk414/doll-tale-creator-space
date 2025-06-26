@@ -17,8 +17,8 @@ dist-ssr
 server/dolls.db
 server/dolls.db-journal
 
-# Uploaded files
-server/uploads/
+# Uploaded files (keep public/models for GitHub Pages)
+# server/uploads/
 
 # Environment variables
 .env
